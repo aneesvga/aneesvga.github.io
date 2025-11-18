@@ -5,25 +5,102 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Mohammed Anees NT — Portfolio & CV</title>
   <meta name="description" content="Mohammed Anees NT — Creative website, Graphic Designer, Motion Graphics Animator, Video Editor, Brand Consultant & MBA Student. 360° brand solutions." />
+  <meta name="color-scheme" content="dark light">
   <style>
-    :root{--bg:#0f1724;--card:#0b1220;--muted:#9aa4b2;--accent:#3b82f6;--glass:rgba(255,255,255,0.03)}
+    :root{
+      --bg-900: #071429;
+      --bg-800: #071a2a;
+      --card: rgba(255,255,255,0.03);
+      --muted: #93a3b4;
+      --accent-1: #3b82f6;
+      --accent-2: #7c3aed;
+      --glass: rgba(255,255,255,0.04);
+      --glass-2: rgba(255,255,255,0.02);
+      --radius: 14px;
+      --txt: #e6eef8;
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, "Roboto Mono", "Segoe UI Mono";
+      --ui-sans: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+
+    /* Light theme overrides (applied via .light on html) */
+    html.light{
+      --bg-900: #ffffff;
+      --bg-800: #f7fafc;
+      --card: rgba(6,19,35,0.03);
+      --muted: #475569;
+      --txt: #061323;
+      --glass: rgba(6,19,35,0.04);
+      --glass-2: rgba(6,19,35,0.02);
+    }
+
     *{box-sizing:border-box}
     html,body{height:100%}
-    body{font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial; margin:0; background:linear-gradient(180deg,#071429 0%, #071a2a 100%); color:#e6eef8; -webkit-font-smoothing:antialiased}
-    .container{max-width:1100px;margin:36px auto;padding:28px}
-    header{display:flex;gap:20px;align-items:center}
-    .avatar{width:112px;height:112px;border-radius:12px;background:linear-gradient(135deg,var(--accent),#7c3aed);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:38px;color:white;flex-shrink:0;box-shadow:0 8px 30px rgba(11,20,32,0.6)}
-    h1{margin:0;font-size:28px}
-    .subtitle{color:var(--muted);margin-top:6px}
-    .actions{margin-left:auto;display:flex;gap:8px}
-    .btn{background:var(--glass);border:1px solid rgba(255,255,255,0.04);padding:10px 14px;border-radius:10px;color:inherit;font-weight:600;cursor:pointer}
-    .btn.primary{background:linear-gradient(90deg,var(--accent),#7c3aed);color:white;border:none}
+    body{
+      margin:0;
+      font-family:var(--ui-sans);
+      background: radial-gradient(1000px 600px at 10% 10%, rgba(59,130,246,0.06), transparent 10%),
+                  linear-gradient(180deg,var(--bg-900) 0%, var(--bg-800) 100%);
+      color:var(--txt);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
+      padding-bottom:48px;
+    }
 
-    main{display:grid;grid-template-columns:1fr 360px;gap:26px;margin-top:26px}
-    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,0.03)}
+    .container{max-width:1100px;margin:36px auto;padding:28px}
+
+    header{
+      display:flex;
+      gap:18px;
+      align-items:center;
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), transparent);
+      padding:14px;
+      border-radius:12px;
+      border:1px solid var(--glass-2);
+      box-shadow: 0 6px 30px rgba(2,6,23,0.45);
+      position:sticky;
+      top:16px;
+      z-index:40;
+      backdrop-filter: blur(6px);
+      align-items:center;
+    }
+
+    .avatar{
+      width:112px;height:112px;border-radius:12px;
+      overflow:hidden;flex-shrink:0;
+      background:linear-gradient(135deg,var(--accent-1),var(--accent-2));
+      display:flex;align-items:center;justify-content:center;font-weight:700;font-size:38px;color:white;
+      box-shadow: 0 8px 30px rgba(11,20,32,0.45);
+      transition:transform .36s cubic-bezier(.2,.9,.2,1);
+    }
+    .avatar img{width:100%;height:100%;object-fit:cover;display:block}
+
+    header:hover .avatar{transform:translateY(-4px) rotate(-1deg)}
+
+    h1{margin:0;font-size:20px}
+    .title-wrap{display:flex;flex-direction:column;gap:6px}
+    .subtitle{color:var(--muted);font-size:13px}
+    .small{font-size:13px;color:var(--muted)}
+
+    .actions{margin-left:auto;display:flex;gap:10px;align-items:center}
+    .btn{
+      background:transparent;border:1px solid var(--glass);
+      padding:8px 12px;border-radius:10px;color:inherit;font-weight:600;cursor:pointer;
+      transition:transform .18s ease, box-shadow .18s ease, background .18s ease;
+      backdrop-filter: blur(4px);
+    }
+    .btn:active{transform:scale(.99)}
+    .btn:hover{transform:translateY(-3px); box-shadow:0 6px 18px rgba(2,6,23,0.35)}
+    .btn.primary{
+      background:linear-gradient(90deg,var(--accent-1),var(--accent-2));
+      color:white;border:none;box-shadow:0 8px 30px rgba(59,130,246,0.12);
+    }
+
+    main{display:grid;grid-template-columns:1fr 360px;gap:26px;margin-top:26px;align-items:start}
+    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:18px;border-radius:var(--radius);border:1px solid var(--glass-2)}
     .profile-meta{display:flex;flex-direction:column;gap:10px}
     .pills{display:flex;flex-wrap:wrap;gap:8px}
-    .pill{padding:8px 10px;border-radius:999px;background:rgba(255,255,255,0.03);font-size:13px}
+    .pill{padding:8px 10px;border-radius:999px;background:var(--glass-2);font-size:13px}
 
     .section-title{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
     .skills-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
@@ -32,141 +109,281 @@
     .portfolio-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
     .thumb{height:120px;border-radius:8px;overflow:hidden;position:relative;background:#051428;display:flex;align-items:center;justify-content:center;color:var(--muted);font-weight:700}
     .thumb img{width:100%;height:100%;object-fit:cover;display:block}
-    .meta-line{color:var(--muted);font-size:13px}
 
     aside .card{position:sticky;top:28px}
-    .contact-list{display:flex;flex-direction:column;gap:8px}
-    .small{font-size:13px;color:var(--muted)}
 
     footer{margin-top:28px;color:var(--muted);font-size:13px;text-align:center}
 
+    /* hero / profile column */
+    .hero{
+      display:flex;flex-direction:column;align-items:center;gap:18px;
+    }
+    .hero-portrait{
+      width:100%;max-width:520px;border-radius:12px;overflow:hidden;border:1px solid var(--glass-2);
+      transform-origin:center;transition:transform .36s cubic-bezier(.2,.9,.2,1), box-shadow .36s;
+    }
+    .hero-portrait:hover{transform:scale(1.01); box-shadow:0 20px 50px rgba(2,6,23,0.45)}
+    .hero h2{margin:6px 0 0;font-size:24px}
+    .cta-row{display:flex;gap:10px;align-items:center}
+
+    /* cv card */
+    #cv{max-width:760px;display:none;margin-top:8px;transition:opacity .28s ease}
+    #cv.show{display:block;opacity:1}
+
     /* modal */
-    .modal{position:fixed;inset:0;background:rgba(2,6,23,0.6);display:none;align-items:center;justify-content:center;padding:20px}
+    .modal{position:fixed;inset:0;background:linear-gradient(180deg,rgba(2,6,23,0.6), rgba(2,6,23,0.55));display:none;align-items:center;justify-content:center;padding:20px;z-index:80}
     .modal.show{display:flex}
-    .modal .box{width:90%;max-width:900px;background:#061323;padding:18px;border-radius:12px}
+    .modal .box{width:92%;max-width:920px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:18px;border-radius:12px;border:1px solid var(--glass-2)}
+    .modal .media{height:320px;border-radius:10px;background:#061428;display:flex;align-items:center;justify-content:center;overflow:hidden}
+
+    /* subtle entrance */
+    .reveal {opacity:0;transform:translateY(10px);animation:reveal .7s forwards;animation-delay:.08s}
+    @keyframes reveal {to{opacity:1;transform:none}}
+
+    /* accent SVG wave */
+    .hero-accent{position:relative;width:100%;height:36px;pointer-events:none;margin-top:-6px;opacity:.9}
 
     /* responsive */
-    @media (max-width:980px){main{grid-template-columns:1fr}aside{order:2}.avatar{width:88px;height:88px}}
+    @media (max-width:980px){
+      main{grid-template-columns:1fr}
+      aside{order:2}
+      .avatar{width:88px;height:88px}
+      .actions{margin-left:8px}
+    }
+
+    /* print */
+    @media print{
+      body{background:white;color:#061323}
+      .btn, .actions, header{display:none !important}
+      #cv{display:block !important}
+      @page{size:A4;margin:12mm}
+    }
+
+    /* accessibility: respect reduced-motion */
+    @media (prefers-reduced-motion: reduce){
+      *{transition:none !important;animation:none !important}
+    }
   </style>
 </head>
 <body>
   <div class="container">
-    <header>
-      <div class="avatar" style="padding:0;overflow:hidden;border-radius:12px;background:none"><img src="aneesvga.png" alt="Mohammed Anees NT" style="width:100%;height:100%;object-fit:cover;border-radius:12px" /></div>
-      <div>
-        <h1>Mohammed Anees NT — Creative Website & Brand Strategist</h1>
-        <div class="subtitle">Creative website • Graphic designer • Motion graphics animator • Video editor • MBA student • Brand consultant</div>
+    <header role="banner" class="reveal" aria-label="Site header">
+      <div class="avatar" aria-hidden="true" title="Mohammed Anees NT">
+        <img src="aneesvga.png" alt="Portrait of Mohammed Anees NT" loading="lazy" />
+      </div>
+
+      <div class="title-wrap" role="region" aria-labelledby="site-title">
+        <h1 id="site-title">Mohammed Anees NT — Creative Website & Brand Strategist</h1>
+        <div class="subtitle">Graphic designer • Motion graphics animator • Video editor • MBA student • Brand consultant</div>
         <div class="small">Islamic scholar • BCA graduate • Learning software development • 360° brand & product solutions</div>
       </div>
 
-      <div class="actions">
-        <button class="btn" onclick="toggleTheme()">Toggle Theme</button>
-        <button class="btn" onclick="downloadCV()">Download CV (Print)</button>
-        <a class="btn primary" href="#contact">Contact</a>
+      <div class="actions" role="navigation" aria-label="Header actions">
+        <button class="btn" id="themeToggle" aria-pressed="false" title="Toggle theme">Toggle theme</button>
+        <button class="btn" id="aboutBtn" title="About me">About</button>
+        <button class="btn" onclick="window.print()">Download CV (Print)</button>
+        <a class="btn primary" href="#contact" role="button">Contact</a>
       </div>
     </header>
 
     <main>
-      <section style="display:flex;flex-direction:column;align-items:center;gap:18px">
-        <div class="card" style="padding:0;overflow:hidden;max-width:520px;border-radius:14px">
-          <img src="aneesvga.png" alt="Mohammed Anees NT" style="width:100%;display:block;object-fit:cover;height:520px" />
+      <section class="hero" aria-labelledby="hero-name">
+        <div class="card hero-portrait reveal" style="padding:0;overflow:hidden;">
+          <img src="aneesvga.png" alt="Showcase image — Mohammed Anees NT" style="width:100%;height:520px;object-fit:cover;display:block" />
         </div>
 
         <div style="text-align:center">
-          <h1 style="margin:6px 0 0;font-size:28px">Mohammed Anees NT</h1>
+          <h2 id="hero-name">Mohammed Anees NT</h2>
           <div class="subtitle" style="margin-top:6px">Creative portfolio — Graphic Designer • Motion Graphics • Video • Brand Strategy</div>
         </div>
 
-        <div style="display:flex;gap:10px;align-items:center">
-          <button class="btn primary" onclick="showAbout()">About Me</button>
+        <div class="cta-row">
+          <button class="btn primary" id="showCvBtn">View CV</button>
           <a class="btn" href="mailto:youremail@example.com">Email</a>
+          <button class="btn" onclick="openModal('Showreel', 'Motion design & editing highlights')">Preview</button>
         </div>
 
-        <div id="cv" class="card" style="max-width:760px;display:none;margin-top:8px">
-          <div class="section-title"><strong>Curriculum Vitae</strong><span class="small">Resume details</span></div>
-          <div class="small">
-            <strong>Profile</strong>
-            <p>I craft visual identities, motion experiences and strategic brand systems. Combining Adobe expertise (Photoshop, Illustrator, After Effects, Premiere Pro, InDesign), video production, motion design and business strategy from my MBA.</p>
+        <div id="cv" class="card" aria-live="polite" role="region" aria-label="Curriculum Vitae">
+          <div class="section-title">
+            <strong>Curriculum Vitae</strong>
+            <span class="small">Printable resume — A4 friendly</span>
+          </div>
 
-            <strong>Experience</strong>
+          <div>
+            <p><strong>Profile</strong></p>
+            <p>I craft visual identities, motion experiences and strategic brand systems. I combine Adobe expertise (Photoshop, Illustrator, After Effects, Premiere Pro, InDesign) with video production, motion design and business strategy from my MBA.</p>
+
+            <p><strong>Experience</strong></p>
             <ul>
               <li>Senior Designer & Motion Lead — Freelance / Agency</li>
               <li>Brand Consultant — Strategy, positioning, GTM & creative guidelines</li>
               <li>Instructor — Adobe suite, motion graphics, Premiere workflows, MS Office</li>
             </ul>
 
-            <strong>Education</strong>
-            <p>MBA (in progress) • BCA • Islamic scholar certifications</p>
+            <p><strong>Education</strong><br/>MBA (in progress) • BCA • Islamic scholar certifications</p>
 
-            <strong>Skills</strong>
-            <p>Photoshop, Illustrator, After Effects, Premiere Pro, InDesign, Motion Design, Video Editing, MS Office, Brand Strategy</p>
+            <p><strong>Skills</strong><br/>Photoshop, Illustrator, After Effects, Premiere Pro, InDesign, Motion Design, Video Editing, MS Office, Brand Strategy</p>
 
-            <strong>Contact</strong>
-            <p>Email: <a href="mailto:youremail@example.com">youremail@example.com</a> • Phone: +91 9XXXXXXXXX • Location: India</p>
+            <p><strong>Contact</strong><br/>Email: <a href="mailto:youremail@example.com">youremail@example.com</a> • Phone: +91 9XXXXXXXXX • Location: India</p>
           </div>
         </div>
 
+        <!-- little decorative accent -->
+        <svg class="hero-accent" viewBox="0 0 1200 60" preserveAspectRatio="none" aria-hidden="true">
+          <defs>
+            <linearGradient id="g" x1="0" x2="1">
+              <stop offset="0" stop-color="#3b82f6" stop-opacity="0.18"></stop>
+              <stop offset="1" stop-color="#7c3aed" stop-opacity="0.12"></stop>
+            </linearGradient>
+          </defs>
+          <path d="M0,40 C200,0 400,80 600,40 C800,0 1000,80 1200,40 L1200,60 L0,60 Z" fill="url(#g)"></path>
+        </svg>
       </section>
+
+      <aside>
+        <div class="card reveal" role="complementary" aria-label="Contact & Quick info">
+          <div class="section-title">
+            <strong>Quick info</strong>
+            <span class="small">Connect</span>
+          </div>
+
+          <div class="profile-meta">
+            <div class="pills">
+              <div class="pill">Graphic Design</div>
+              <div class="pill">Motion</div>
+              <div class="pill">Video</div>
+              <div class="pill">Brand Strategy</div>
+            </div>
+
+            <div style="margin-top:10px">
+              <div class="small"><strong>Location</strong><br/>India</div>
+              <div style="height:8px"></div>
+              <div class="small"><strong>Email</strong><br/><a href="mailto:youremail@example.com">youremail@example.com</a></div>
+              <div style="height:8px"></div>
+              <div class="small"><strong>Phone</strong><br/>+91 9XXXXXXXXX</div>
+            </div>
+
+            <div style="margin-top:12px">
+              <div class="small"><strong>Social</strong></div>
+              <div style="display:flex;gap:8px;margin-top:6px">
+                <a class="btn" href="#" aria-label="Behance">Behance</a>
+                <a class="btn" href="#" aria-label="Vimeo">Vimeo</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card reveal" style="margin-top:12px">
+          <div class="section-title">
+            <strong>Portfolio</strong>
+            <span class="small">Selected work</span>
+          </div>
+          <div class="portfolio-grid">
+            <div class="thumb" role="button" tabindex="0" onclick="openModal('Brand Identity', 'Photoshop · Illustrator')">Project 1</div>
+            <div class="thumb" role="button" tabindex="0" onclick="openModal('Title Sequence', 'After Effects · Premiere')">Project 2</div>
+            <div class="thumb" role="button" tabindex="0" onclick="openModal('Promo Edit', 'Premiere · Color')">Project 3</div>
+            <div class="thumb" role="button" tabindex="0" onclick="openModal('Motion Loop', 'After Effects')">Project 4</div>
+          </div>
+        </div>
+      </aside>
     </main>
 
     <footer>
-      Built for presenting a clean, editable single-file portfolio. Update content, replace thumbnails with your images and link real project pages.
+      Built for presenting a clean, editable single-file portfolio. Replace placeholders, add real thumbnails and project links. © <span id="year"></span> Mohammed Anees NT
     </footer>
   </div>
 
   <!-- modal preview -->
-  <div id="modal" class="modal" onclick="closeModal(event)">
-    <div class="box card" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+  <div id="modal" class="modal" onclick="closeModal(event)" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="box card" role="document">
       <div style="display:flex;justify-content:space-between;align-items:center">
         <div>
           <h3 id="modal-title">Preview</h3>
           <div id="modal-sub" class="small"></div>
         </div>
-        <button class="btn" onclick="closeModal(event)">Close</button>
+        <div style="display:flex;gap:8px">
+          <button class="btn" onclick="closeModal(event)">Close</button>
+        </div>
       </div>
-      <div style="margin-top:12px" id="modal-body" class="small">Project details and visual previews go here. Replace with images, videos or embed links to Vimeo / YouTube / Behance.</div>
+      <div style="margin-top:12px">
+        <div id="modal-body" class="small">Project details and visual previews go here. Replace with images, videos or embed links to Vimeo / YouTube / Behance.</div>
+      </div>
+      <div style="margin-top:14px" class="media" id="modal-media" aria-hidden="true">
+        <!-- placeholder media area — replace with iframe or video -->
+        <div class="small">Media preview</div>
+      </div>
     </div>
   </div>
 
   <script>
+    // small utilities & state
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Theme persistence
+    const themeToggle = document.getElementById('themeToggle');
+    const prefersLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
+    const saved = localStorage.getItem('site-theme');
+    if(saved === 'light' || (!saved && prefersLight)) document.documentElement.classList.add('light');
+
+    themeToggle.addEventListener('click', () => {
+      const isLight = document.documentElement.classList.toggle('light');
+      themeToggle.setAttribute('aria-pressed', String(isLight));
+      localStorage.setItem('site-theme', isLight ? 'light' : 'dark');
+    });
+
+    // CV view toggle
+    const showCvBtn = document.getElementById('showCvBtn');
+    const cv = document.getElementById('cv');
+    showCvBtn.addEventListener('click', () => {
+      cv.classList.toggle('show');
+      // focus for accessibility
+      if(cv.classList.contains('show')) cv.scrollIntoView({behavior:'smooth'});
+    });
+
+    // About button maps to same CV for now
+    document.getElementById('aboutBtn').addEventListener('click', () => {
+      if(!cv.classList.contains('show')) cv.classList.add('show');
+      cv.scrollIntoView({behavior:'smooth'});
+    });
+
+    // Modal functions
     function openModal(title, subtitle){
+      const modal = document.getElementById('modal');
       document.getElementById('modal-title').textContent = title;
-      document.getElementById('modal-sub').textContent = subtitle;
-      document.getElementById('modal-body').textContent = title + ' — a short description about the tools used, the brief, your role, outcome and a link to view the case study.';
-      document.getElementById('modal').classList.add('show');
+      document.getElementById('modal-sub').textContent = subtitle || '';
+      document.getElementById('modal-body').textContent = title + ' — short case summary: tools used, your role, outcome and a link to the full case study.';
+      modal.classList.add('show');
+      modal.setAttribute('aria-hidden','false');
+      // trap focus (basic)
+      setTimeout(()=> {
+        modal.querySelector('.box').focus();
+      }, 80);
     }
     function closeModal(e){
-      if(e.target.id === 'modal' || e.target.innerText === 'Close') document.getElementById('modal').classList.remove('show');
-    }
-
-    function downloadCV(){
-      // trigger print dialog which users can save as PDF
-      window.print();
-    }
-
-    function toggleTheme(){
-      if(document.documentElement.style.getPropertyValue('--bg') === '#fff'){
-        document.documentElement.style.setProperty('--bg','#0f1724');
-      } else {
-        document.documentElement.style.setProperty('--bg','#fff');
-      }
-      // simple visual toggle: invert background and text
-      if(document.body.style.backgroundColor === 'white'){
-        document.body.style.background = 'linear-gradient(180deg,#071429 0%, #071a2a 100%)';
-        document.body.style.color = '#e6eef8';
-      } else {
-        document.body.style.background = '#ffffff';
-        document.body.style.color = '#061323';
+      // close when clicking overlay or the close button
+      if(e.target.id === 'modal' || e.target.innerText === 'Close') {
+        const modal = document.getElementById('modal');
+        modal.classList.remove('show');
+        modal.setAttribute('aria-hidden','true');
       }
     }
+    // allow Esc to close modal
+    document.addEventListener('keydown', (ev) => {
+      if(ev.key === 'Escape'){
+        const modal = document.getElementById('modal');
+        if(modal.classList.contains('show')) {
+          modal.classList.remove('show');
+          modal.setAttribute('aria-hidden','true');
+        }
+      }
+    });
 
-    // small helpful print stylesheet
-    (function(){
-      var style = document.createElement('style');
-      style.media = 'print';
-      style.appendChild(document.createTextNode('@page { size: A4; margin: 12mm } body{background: white !important;color:#061323 !important} .btn{display:none} .modal{display:none !important}'));
-      document.head.appendChild(style);
-    })();
+    // keyboard activation for .thumb buttons
+    document.querySelectorAll('.thumb').forEach(el => {
+      el.addEventListener('keydown', (e) => {
+        if(e.key === 'Enter' || e.key === ' ') openModal(el.textContent.trim(), 'Project preview');
+      });
+    });
   </script>
 </body>
 </html>
