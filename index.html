@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Adany — Portfolio & CV</title>
+  <meta name="description" content="Adany — Graphic Designer, Motion Graphics Animator, Video Editor, Brand Consultant & MBA Student. 360° brand solutions." />
+  <style>
+    :root{--bg:#0f1724;--card:#0b1220;--muted:#9aa4b2;--accent:#3b82f6;--glass:rgba(255,255,255,0.03)}
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial; margin:0; background:linear-gradient(180deg,#071429 0%, #071a2a 100%); color:#e6eef8; -webkit-font-smoothing:antialiased}
+    .container{max-width:1100px;margin:36px auto;padding:28px}
+    header{display:flex;gap:20px;align-items:center}
+    .avatar{width:112px;height:112px;border-radius:12px;background:linear-gradient(135deg,var(--accent),#7c3aed);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:38px;color:white;flex-shrink:0;box-shadow:0 8px 30px rgba(11,20,32,0.6)}
+    h1{margin:0;font-size:28px}
+    .subtitle{color:var(--muted);margin-top:6px}
+    .actions{margin-left:auto;display:flex;gap:8px}
+    .btn{background:var(--glass);border:1px solid rgba(255,255,255,0.04);padding:10px 14px;border-radius:10px;color:inherit;font-weight:600;cursor:pointer}
+    .btn.primary{background:linear-gradient(90deg,var(--accent),#7c3aed);color:white;border:none}
+
+    main{display:grid;grid-template-columns:1fr 360px;gap:26px;margin-top:26px}
+    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,0.03)}
+    .profile-meta{display:flex;flex-direction:column;gap:10px}
+    .pills{display:flex;flex-wrap:wrap;gap:8px}
+    .pill{padding:8px 10px;border-radius:999px;background:rgba(255,255,255,0.03);font-size:13px}
+
+    .section-title{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
+    .skills-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
+    .skill{background:linear-gradient(90deg, rgba(255,255,255,0.015), rgba(255,255,255,0.01));padding:8px;border-radius:8px}
+
+    .portfolio-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+    .thumb{height:120px;border-radius:8px;overflow:hidden;position:relative;background:#051428;display:flex;align-items:center;justify-content:center;color:var(--muted);font-weight:700}
+    .thumb img{width:100%;height:100%;object-fit:cover;display:block}
+    .meta-line{color:var(--muted);font-size:13px}
+
+    aside .card{position:sticky;top:28px}
+    .contact-list{display:flex;flex-direction:column;gap:8px}
+    .small{font-size:13px;color:var(--muted)}
+
+    footer{margin-top:28px;color:var(--muted);font-size:13px;text-align:center}
+
+    /* modal */
+    .modal{position:fixed;inset:0;background:rgba(2,6,23,0.6);display:none;align-items:center;justify-content:center;padding:20px}
+    .modal.show{display:flex}
+    .modal .box{width:90%;max-width:900px;background:#061323;padding:18px;border-radius:12px}
+
+    /* responsive */
+    @media (max-width:980px){main{grid-template-columns:1fr}aside{order:2}.avatar{width:88px;height:88px}}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="avatar">AD</div>
+      <div>
+        <h1>Graphic Designer & Brand Strategist</h1>
+        <div class="subtitle">Graphic designer • Motion graphics animator • Video editor • MBA student • Brand consultant</div>
+        <div class="small">Islamic scholar • BCA graduate • Learning software development • 360° brand & product solutions</div>
+      </div>
+
+      <div class="actions">
+        <button class="btn" onclick="toggleTheme()">Toggle Theme</button>
+        <button class="btn" onclick="downloadCV()">Download CV (Print)</button>
+        <a class="btn primary" href="#contact">Contact</a>
+      </div>
+    </header>
+
+    <main>
+      <section>
+        <div class="card profile-meta">
+          <div class="section-title"><strong>About — Quick Pitch</strong><span class="small">360° brand & media solutions</span></div>
+          <p class="small">I craft visual identities, motion experiences and strategic brand systems that help firms communicate clearly and convert customers. I combine Adobe expertise (Photoshop, Illustrator, After Effects, Premiere Pro, InDesign), video production, motion design and business strategy from my MBA to deliver end‑to‑end brand solutions.</p>
+
+          <div style="margin-top:12px">
+            <div class="section-title"><strong>Core Specialties</strong><span class="small">Design • Video • Strategy</span></div>
+            <div class="pills">
+              <span class="pill">Brand Identity</span>
+              <span class="pill">Motion Graphics</span>
+              <span class="pill">Video Editing</span>
+              <span class="pill">Packaging & Print</span>
+              <span class="pill">UI/UX Visuals</span>
+              <span class="pill">Strategy & Roadmaps</span>
+              <span class="pill">MS Office Expert</span>
+              <span class="pill">Software Dev (learning)</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="card" style="margin-top:14px">
+          <div class="section-title"><strong>Selected Projects</strong><span class="small">Tap to preview</span></div>
+          <div class="portfolio-grid" id="portfolio">
+            <div class="thumb" onclick="openModal('Brand Identity — Corporate Pack','Adobe Illustrator, InDesign, mockups')">Brand ID<br><span class="meta-line">Logo, stationery, brandbook</span></div>
+            <div class="thumb" onclick="openModal('Motion Reel — Product Launch','After Effects, Premiere Pro')">Motion Reel<br><span class="meta-line">Product launch animation</span></div>
+            <div class="thumb" onclick="openModal('Explainer — Service Video','Storyboard, Animation, Voice-over')">Explainer<br><span class="meta-line">2D animated explainer</span></div>
+            <div class="thumb" onclick="openModal('Ad Edit — Social Campaign','Premiere Pro, Color Grading')">Ad Edit<br><span class="meta-line">Social & YouTube ads</span></div>
+          </div>
+        </div>
+
+        <div class="card" style="margin-top:14px">
+          <div class="section-title"><strong>Experience & Roles</strong><span class="small">Freelance & Agency</span></div>
+          <ul class="small" style="margin:0 0 0 18px;padding:0">
+            <li><strong>Senior Designer & Motion Lead</strong> — Freelance / Agency (Brand systems, motion, video campaigns)</li>
+            <li><strong>Brand Consultant (part-time)</strong> — Strategy, positioning, GTM & creative guidelines</li>
+            <li><strong>Instructor / Mentor</strong> — Adobe suite, motion graphics, Premiere workflows, MS Office</li>
+          </ul>
+        </div>
+
+        <div class="card" style="margin-top:14px">
+          <div class="section-title"><strong>Education & Certifications</strong><span class="small">Academic & professional</span></div>
+          <div class="small">
+            <strong>MBA — (in progress)</strong><br>
+            <strong>BCA</strong> — Graduated<br>
+            <strong>Islamic Studies</strong> — Scholar certifications
+          </div>
+        </div>
+
+        <div class="card" style="margin-top:14px">
+          <div class="section-title"><strong>Approach</strong><span class="small">How I work</span></div>
+          <ol class="small">
+            <li>Discovery: brand audit, goals, audience</li>
+            <li>Strategy: positioning, messaging, KPIs</li>
+            <li>Design: identity, collateral, motion</li>
+            <li>Delivery: assets, templates, handover + training</li>
+            <li>Growth: measurement, iteration, roadmap</li>
+          </ol>
+        </div>
+      </section>
+
+      <aside>
+        <div class="card">
+          <div class="section-title"><strong>Skills</strong><span class="small">Tools & strengths</span></div>
+          <div class="skills-grid">
+            <div class="skill">Adobe Photoshop</div>
+            <div class="skill">Illustrator</div>
+            <div class="skill">After Effects</div>
+            <div class="skill">Premiere Pro</div>
+            <div class="skill">InDesign</div>
+            <div class="skill">Motion Design</div>
+            <div class="skill">Video Editing</div>
+            <div class="skill">MS Office / PowerPoint</div>
+            <div class="skill">Brand Strategy</div>
+            <div class="skill">Training & Teaching</div>
+            <div class="skill">UI Visuals</div>
+            <div class="skill">Software Development (learning)</div>
+          </div>
+        </div>
+
+        <div class="card" style="margin-top:12px" id="contact">
+          <div class="section-title"><strong>Contact</strong><span class="small">Available for freelance & consulting</span></div>
+          <div class="contact-list small">
+            <div><strong>Email:</strong> <a href="mailto:youremail@example.com">youremail@example.com</a></div>
+            <div><strong>Phone:</strong> +91 9XXXXXXXXX</div>
+            <div><strong>Location:</strong> India</div>
+            <div><strong>Availability:</strong> Part-time / Projects</div>
+          </div>
+
+          <div style="margin-top:12px;display:flex;gap:8px">
+            <a class="btn" href="mailto:youremail@example.com">Email</a>
+            <button class="btn primary" onclick="downloadCV()">Download CV</button>
+          </div>
+
+          <div style="margin-top:12px" class="small">Socials: <a href="#">LinkedIn</a> • <a href="#">Behance</a> • <a href="#">YouTube</a></div>
+        </div>
+
+        <div class="card" style="margin-top:12px">
+          <div class="section-title"><strong>Rates & Engagement</strong><span class="small">Example</span></div>
+          <div class="small">Project-based or monthly retainer. Offers tailored to scope: creative-only, strategy+design, or end-to-end 360° delivery including training and roadmaps.</div>
+        </div>
+      </aside>
+    </main>
+
+    <footer>
+      Built for presenting a clean, editable single-file portfolio. Update content, replace thumbnails with your images and link real project pages.
+    </footer>
+  </div>
+
+  <!-- modal preview -->
+  <div id="modal" class="modal" onclick="closeModal(event)">
+    <div class="box card" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <div style="display:flex;justify-content:space-between;align-items:center">
+        <div>
+          <h3 id="modal-title">Preview</h3>
+          <div id="modal-sub" class="small"></div>
+        </div>
+        <button class="btn" onclick="closeModal(event)">Close</button>
+      </div>
+      <div style="margin-top:12px" id="modal-body" class="small">Project details and visual previews go here. Replace with images, videos or embed links to Vimeo / YouTube / Behance.</div>
+    </div>
+  </div>
+
+  <script>
+    function openModal(title, subtitle){
+      document.getElementById('modal-title').textContent = title;
+      document.getElementById('modal-sub').textContent = subtitle;
+      document.getElementById('modal-body').textContent = title + ' — a short description about the tools used, the brief, your role, outcome and a link to view the case study.';
+      document.getElementById('modal').classList.add('show');
+    }
+    function closeModal(e){
+      if(e.target.id === 'modal' || e.target.innerText === 'Close') document.getElementById('modal').classList.remove('show');
+    }
+
+    function downloadCV(){
+      // trigger print dialog which users can save as PDF
+      window.print();
+    }
+
+    function toggleTheme(){
+      if(document.documentElement.style.getPropertyValue('--bg') === '#fff'){
+        document.documentElement.style.setProperty('--bg','#0f1724');
+      } else {
+        document.documentElement.style.setProperty('--bg','#fff');
+      }
+      // simple visual toggle: invert background and text
+      if(document.body.style.backgroundColor === 'white'){
+        document.body.style.background = 'linear-gradient(180deg,#071429 0%, #071a2a 100%)';
+        document.body.style.color = '#e6eef8';
+      } else {
+        document.body.style.background = '#ffffff';
+        document.body.style.color = '#061323';
+      }
+    }
+
+    // small helpful print stylesheet
+    (function(){
+      var style = document.createElement('style');
+      style.media = 'print';
+      style.appendChild(document.createTextNode('@page { size: A4; margin: 12mm } body{background: white !important;color:#061323 !important} .btn{display:none} .modal{display:none !important}'));
+      document.head.appendChild(style);
+    })();
+  </script>
+</body>
+</html>
