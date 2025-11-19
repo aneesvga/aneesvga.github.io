@@ -72,7 +72,7 @@ body{
 
 /* hero desktop layout */
 .hero{
-  margin-top:84px; /* room for header */
+  margin-top:20px; /* room for header */
   padding:42px;border-radius:12px;
   background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.005));
   border:1px solid rgba(255,255,255,0.02);
@@ -86,8 +86,8 @@ body{
 
 /* portrait: full-scale, grayscale */
 .portrait{
-  width:420px;height:520px;border-radius:10px;overflow:hidden;border:1px solid rgba(255,255,255,0.03);
-  background:#000;display:flex;align-items:center;justify-content:center;box-shadow:0 30px 60px rgba(3,3,3,0.65);
+  width:420px;height:520px;border-radius:10px;overflow:hidden;
+  display:flex;align-items:center;justify-content:center;
 }
 .portrait img{
   width:100%;height:100%;object-fit:cover;display:block;
@@ -143,6 +143,26 @@ body{
   .lead{font-size:13px}
   .card{height:150px}
 }
+
+.btn-line {
+  background: none;
+  border: none;
+  color: var(--gold);
+  font-weight: 600;
+  padding: 6px 0;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--gold);
+  display: inline-block;
+  cursor: pointer;
+  transition: .3s ease;
+}
+
+.btn-line:hover {
+  letter-spacing: 0.12em;
+  opacity: 0.85;
+}
+
 </style>
 </head>
 <body>
@@ -182,7 +202,7 @@ body{
 
       <!-- view work CTA -->
       <div style="margin-top:12px">
-        <button class="btn primary" id="ctaWork">View Portfolio</button>
+<button class="btn-line" id="ctaWork">View Portfolio</button>
       </div>
 
       <!-- services hidden on mobile to stay minimal -->
