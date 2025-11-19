@@ -371,6 +371,14 @@ const cta = document.getElementById('ctaWork');
 const portfolio = document.getElementById('portfolio');
 cta && cta.addEventListener('click', ()=> portfolio && portfolio.scrollIntoView({behavior:'smooth'}));
 
+/* Header nav buttons */
+const aboutBtn = document.getElementById('aboutBtn');
+const cvSection = document.querySelector('.cv');
+aboutBtn && cvSection && aboutBtn.addEventListener('click', ()=> cvSection.scrollIntoView({behavior:'smooth'}));
+
+const viewWorkBtn = document.getElementById('viewWorkBtn');
+viewWorkBtn && portfolio && viewWorkBtn.addEventListener('click', ()=> portfolio.scrollIntoView({behavior:'smooth'}));
+
 /* Modal functions */
 function openModal(title){
   const m = document.getElementById('modal');
